@@ -1,4 +1,3 @@
-import { createNativeStackNavigator } from "@react-navigation/native-stack";
 import React from "react";
 import {
   StyleSheet,
@@ -31,36 +30,34 @@ const members: Member[] = [
   { name: "윈터", image: require("./images/winter.jpg") },
   { name: "닝닝", image: require("./images/ningning.jpg") },
 ];
-const Stack = createNativeStackNavigator();
+export default function Home(){
 
-const App = () => {
-  return (
-    <SafeAreaView style={styles.container}>
-      <View style={styles.header}>
-        <Text style={styles.title}>aespa</Text>
+  return(    <SafeAreaView style={styles.container}>
+    <View style={styles.header}>
+      <Text style={styles.title}>aespa</Text>
+    </View>
+    <ScrollView>
+      <View style={styles.mainTitleContainer}>
+        <Text style={styles.mainTitle}>Aespa 미니3집 My World</Text>
       </View>
-      <ScrollView>
-        <View style={styles.mainTitleContainer}>
-          <Text style={styles.mainTitle}>Aespa 미니3집 My World</Text>
-        </View>
-        <View style={styles.logoContainer}>
-          <Image
-            style={styles.logoImage}
-            source={require("./images/myworldLogo.jpg")}
-          />
-        </View>
-        <View style={styles.body}>
-          {members.map((member, index) => (
-            <ImageWrapper index={index}>
-              <Image source={member.image} style={styles.memberImage} />
-              <Text style={styles.memberName}>{member.name}</Text>
-            </ImageWrapper>
-          ))}
-        </View>
-      </ScrollView>
-    </SafeAreaView>
-  );
-};
+      <View style={styles.logoContainer}>
+        <Image
+          style={styles.logoImage}
+          source={require("./images/myworldLogo.jpg")}
+        />
+      </View>
+      <View style={styles.body}>
+        {members.map((member, index) => (
+          <ImageWrapper index={index}>
+            <Image source={member.image} style={styles.memberImage} />
+            <Text style={styles.memberName}>{member.name}</Text>
+          </ImageWrapper>
+        ))}
+      </View>
+    </ScrollView>
+  </SafeAreaView>)
+}
+
 const styles = StyleSheet.create({
   container: {
     flex: 1,
@@ -82,12 +79,13 @@ const styles = StyleSheet.create({
     justifyContent: "center",
     alignItems: "center",
     marginTop: 20,
+    
   },
   mainTitle: {
     flex: 1,
     fontSize: 20,
     fontWeight: "800",
-    color: "#4fd163",
+    color:"#4fd163"
   },
   title: {
     fontSize: 24,
@@ -131,4 +129,3 @@ const styles = StyleSheet.create({
     marginTop: 10,
   },
 });
-export default App;
