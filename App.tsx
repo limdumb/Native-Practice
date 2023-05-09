@@ -30,7 +30,7 @@ const members: Member[] = [
   { name: "윈터", image: require("./images/winter.jpg") },
   { name: "닝닝", image: require("./images/ningning.jpg") },
 ];
-
+//에러발생
 const App = () => {
   return (
     <SafeAreaView style={styles.container}>
