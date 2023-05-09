@@ -15,10 +15,13 @@ type Member = {
 };
 
 const ImageWrapper = styled.View<{ index: number }>`
-  flex: 1;
+  display: flex;
   justify-content: center;
   align-items: center;
-  margin-right: ${(props) => (props.index === 0 || props.index === 2 ? "30" : 0)};
+  margin-bottom: ${(props: { index: number }) =>
+    props.index === 0 || props.index === 1 ? 30 : 0};
+  margin-right: ${(props: { index: number }) =>
+    props.index === 0 || props.index === 2 ? 30 : 0};
 `;
 
 const members: Member[] = [
@@ -35,7 +38,9 @@ const App = () => {
         <Text style={styles.title}>aespa</Text>
       </View>
       <ScrollView>
-        <Text style={styles.mainTitle}>Aespa 미니3집 My World</Text>
+        <View style={styles.mainTitleContainer}>
+          <Text style={styles.mainTitle}>Aespa 미니3집 My World</Text>
+        </View>
         <View style={styles.logoContainer}>
           <Image
             style={styles.logoImage}
@@ -44,10 +49,10 @@ const App = () => {
         </View>
         <View style={styles.body}>
           {members.map((member, index) => (
-            <View>
+            <ImageWrapper index={index}>
               <Image source={member.image} style={styles.memberImage} />
               <Text style={styles.memberName}>{member.name}</Text>
-            </View>
+            </ImageWrapper>
           ))}
         </View>
       </ScrollView>
@@ -70,12 +75,19 @@ const styles = StyleSheet.create({
     borderBottomWidth: 1,
     paddingHorizontal: 20,
   },
-  mainTitle: {
+  mainTitleContainer: {
     flex: 1,
+    width: "100%",
     justifyContent: "center",
     alignItems: "center",
+    marginTop: 20,
+    
+  },
+  mainTitle: {
+    flex: 1,
     fontSize: 20,
     fontWeight: "800",
+    color:"#4fd163"
   },
   title: {
     fontSize: 24,
