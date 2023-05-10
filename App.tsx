@@ -31,6 +31,7 @@ const members: Member[] = [
   { name: "윈터", image: require("./images/winter.jpg") },
   { name: "닝닝", image: require("./images/ningning.jpg") },
 ];
+
 const Stack = createNativeStackNavigator();
 
 const App = () => {
@@ -61,6 +62,7 @@ const App = () => {
     </SafeAreaView>
   );
 };
+
 const styles = StyleSheet.create({
   container: {
     flex: 1,
