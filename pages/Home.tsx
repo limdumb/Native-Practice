@@ -19,33 +19,39 @@ const ImageTouchWrapper = styled.TouchableOpacity<{ index: number }>`
     props.index === 0 || props.index === 2 ? 30 : 0};
 `;
 
-type Member = {
+export type Member = {
   name: string;
   image: any;
 };
 
-const ImageWrapper: React.FC<{
-  index: number;
-  navigation: any;
-  children: React.ReactNode;
-}> = ({ index, navigation, children }) => {
-  return (
-    <ImageTouchWrapper
-      index={index}
-      onPress={() => navigation.navigate("MemberDetail", { index })}
-    >
-      {children}
-    </ImageTouchWrapper>
-  );
-};
-
 const Home = ({ navigation }: any) => {
+
+  
   const members: Member[] = [
     { name: "카리나", image: require("../images/karina.jpg") },
     { name: "지젤", image: require("../images/gigel.jpg") },
     { name: "윈터", image: require("../images/winter.jpg") },
     { name: "닝닝", image: require("../images/ningning.jpg") },
   ];
+  
+  const ImageWrapper: React.FC<{
+    index: number;
+    children: React.ReactNode;
+    member: Member;
+  }> = ({ index, children, member }) => {
+    return (
+      <ImageTouchWrapper
+        onPress={() =>
+          navigation.navigate("MemberDetail", {
+            member: member,
+          })
+        }
+        index={index}
+      >
+        {children}
+      </ImageTouchWrapper>
+    );
+  };
   return (
     <SafeAreaView style={styles.container}>
       <View style={styles.header}>
@@ -64,8 +70,9 @@ const Home = ({ navigation }: any) => {
         <View style={styles.body}>
           {members.map((member, index) => (
             <ImageWrapper
+              key={index}
               index={index}
-              navigation={navigation}
+              member={member}
               children={
                 <>
                   <Image source={member.image} style={styles.memberImage} />
