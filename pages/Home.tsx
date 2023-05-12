@@ -25,15 +25,13 @@ export type Member = {
 };
 
 const Home = ({ navigation }: any) => {
-
-  
   const members: Member[] = [
     { name: "카리나", image: require("../images/karina.jpg") },
     { name: "지젤", image: require("../images/gigel.jpg") },
     { name: "윈터", image: require("../images/winter.jpg") },
     { name: "닝닝", image: require("../images/ningning.jpg") },
   ];
-  
+
   const ImageWrapper: React.FC<{
     index: number;
     children: React.ReactNode;
@@ -41,17 +39,18 @@ const Home = ({ navigation }: any) => {
   }> = ({ index, children, member }) => {
     return (
       <ImageTouchWrapper
-        onPress={() =>
+        onPress={() => {
           navigation.navigate("MemberDetail", {
             member: member,
-          })
-        }
+          });
+        }}
         index={index}
       >
         {children}
       </ImageTouchWrapper>
     );
   };
+
   return (
     <SafeAreaView style={styles.container}>
       <View style={styles.header}>

@@ -1,10 +1,15 @@
 import { createNativeStackNavigator } from "@react-navigation/native-stack";
 import { NavigationContainer } from "@react-navigation/native";
-import Home from "./pages/Home";
+import Home, { Member } from "./pages/Home";
 import React from "react";
 import MemberDetail from "./pages/MemberDetail";
 
-const Stack = createNativeStackNavigator();
+export type RootStackParamList = {
+  Home: undefined;
+  MemberDetail: { member: Member };
+};
+
+const Stack = createNativeStackNavigator<RootStackParamList>();
 
 const App = () => {
   return (
@@ -13,7 +18,7 @@ const App = () => {
         <Stack.Screen name="Home" component={Home} />
         <Stack.Screen
           name="MemberDetail"
-          component={MemberDetail as React.ComponentType}
+          component={MemberDetail}
         />
       </Stack.Navigator>
     </NavigationContainer>

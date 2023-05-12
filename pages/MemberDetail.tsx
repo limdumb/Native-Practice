@@ -1,29 +1,33 @@
 import { RouteProp } from "@react-navigation/native";
-import { StyleSheet, Text, View } from "react-native";
-type RootStackParamList = {
-  Home: undefined;
-  MemberDetail: { index: number };
+import { Image, StyleSheet, Text, View } from "react-native";
+import { RootStackParamList } from "../App";
+import { Member } from "./Home";
+
+type MemberDetailProps = {
+  route: RouteProp<RootStackParamList, "MemberDetail">;
 };
 
-interface MemberDetailProps {
-  route: RouteProp<RootStackParamList, "MemberDetail">;
-}
+const MemberDetail = ({ route }: MemberDetailProps) => {
+  const memberProps: Member = route.params.member;
 
-const MemberDetail: React.FC<MemberDetailProps> = ({ route }) => {
-  console.log(route)
   return (
     <View style={styles.container}>
-      {/* <Image source={route.image} style={styles.memberImage} /> */}
-      <Text style={styles.memberName}>{route.name}</Text>
+      <Image source={memberProps.image} style={styles.memberImage} />
+      <Text style={styles.memberName}>{memberProps.name}</Text>
       <Text>멤버 소개 페이지</Text>
     </View>
   );
 };
 
 const styles = StyleSheet.create({
-  container: {},
-  memberImage: {},
+  container: {
+    flex: 1,
+    backgroundColor: "#fff",
+    width: 393,
+    alignItems: "center",
+  },
+  memberImage: { width: 150, height: 150 },
   memberName: {},
 });
 
-export default MemberDetail
+export default MemberDetail;
