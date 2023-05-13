@@ -1,3 +1,4 @@
+import { NavigationProp, useNavigation } from "@react-navigation/native";
 import React from "react";
 import {
   StyleSheet,
@@ -8,6 +9,7 @@ import {
   ScrollView,
 } from "react-native";
 import styled from "styled-components/native";
+import { RootStackParamList } from "../App";
 
 const ImageTouchWrapper = styled.TouchableOpacity<{ index: number }>`
   display: flex;
@@ -24,7 +26,13 @@ export type Member = {
   image: any;
 };
 
-const Home = ({ navigation }: any) => {
+type HomeScreenNavigationProp = NavigationProp<RootStackParamList, "Home">;
+
+const Home = () => {
+
+  const navigation: HomeScreenNavigationProp =
+    useNavigation<HomeScreenNavigationProp>();
+
   const members: Member[] = [
     { name: "카리나", image: require("../images/karina.jpg") },
     { name: "지젤", image: require("../images/gigel.jpg") },
@@ -53,9 +61,6 @@ const Home = ({ navigation }: any) => {
 
   return (
     <SafeAreaView style={styles.container}>
-      <View style={styles.header}>
-        <Text style={styles.title}>aespa</Text>
-      </View>
       <ScrollView>
         <View style={styles.mainTitleContainer}>
           <Text style={styles.mainTitle}>Aespa 미니3집 My World</Text>
@@ -92,15 +97,6 @@ const styles = StyleSheet.create({
     backgroundColor: "#fff",
     width: 393,
   },
-  header: {
-    flexDirection: "row",
-    alignItems: "center",
-    backgroundColor: "#fff",
-    height: 40,
-    borderBottomColor: "#eaeaea",
-    borderBottomWidth: 1,
-    paddingHorizontal: 20,
-  },
   mainTitleContainer: {
     flex: 1,
     width: "100%",
@@ -113,11 +109,6 @@ const styles = StyleSheet.create({
     fontSize: 20,
     fontWeight: "800",
     color: "#4fd163",
-  },
-  title: {
-    fontSize: 24,
-    fontWeight: "bold",
-    marginLeft: 10,
   },
   body: {
     flex: 1,

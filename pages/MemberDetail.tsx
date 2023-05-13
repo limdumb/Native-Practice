@@ -8,6 +8,7 @@ type MemberDetailProps = {
 };
 
 const MemberDetail = ({ route }: MemberDetailProps) => {
+  
   const memberProps: Member = route.params.member;
 
   return (
