@@ -22,22 +22,22 @@ const ImageTouchWrapper = styled.TouchableOpacity<{ index: number }>`
 `;
 
 export type Member = {
-  name: string;
+  nickName: string;
   image: any;
+  id: number;
 };
 
 type HomeScreenNavigationProp = NavigationProp<RootStackParamList, "Home">;
 
 const Home = () => {
-
   const navigation: HomeScreenNavigationProp =
     useNavigation<HomeScreenNavigationProp>();
 
   const members: Member[] = [
-    { name: "카리나", image: require("../images/karina.jpg") },
-    { name: "지젤", image: require("../images/gigel.jpg") },
-    { name: "윈터", image: require("../images/winter.jpg") },
-    { name: "닝닝", image: require("../images/ningning.jpg") },
+    { id: 1, nickName: "카리나", image: require("../images/karina.jpg") },
+    { id: 2, nickName: "지젤", image: require("../images/gigel.jpg") },
+    { id: 3, nickName: "윈터", image: require("../images/winter.jpg") },
+    { id: 4, nickName: "닝닝", image: require("../images/ningning.jpg") },
   ];
 
   const ImageWrapper: React.FC<{
@@ -80,7 +80,7 @@ const Home = () => {
               children={
                 <>
                   <Image source={member.image} style={styles.memberImage} />
-                  <Text style={styles.memberName}>{member.name}</Text>
+                  <Text style={styles.membernickName}>{member.nickName}</Text>
                 </>
               }
             />
@@ -141,7 +141,7 @@ const styles = StyleSheet.create({
     height: 150,
     borderRadius: 75,
   },
-  memberName: {
+  membernickName: {
     fontSize: 20,
     fontWeight: "bold",
     marginTop: 10,

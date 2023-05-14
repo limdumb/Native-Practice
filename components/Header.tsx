@@ -1,11 +1,9 @@
 import { StyleSheet, Text, View } from "react-native";
-import BackButton from "./BackButton";
 
 export default function Header() {
   return (
     <View style={styles.header}>
       <Text style={styles.title}>Aespa</Text>
-      <BackButton/>
     </View>
   );
 }
