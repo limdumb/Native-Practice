@@ -95,7 +95,6 @@ const styles = StyleSheet.create({
   container: {
     flex: 1,
     backgroundColor: "#fff",
-    width: 393,
   },
   mainTitleContainer: {
     flex: 1,
