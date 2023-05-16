@@ -71,7 +71,7 @@ const MemberDetail = ({ route }: MemberDetailProps) => {
         "https://i.namu.wiki/i/9QyxdDUpa-d8vJIP9mtJJKem8RHTYY8w1kxcJvngug9rXpvWtsR0DR33UajhQb12935xOYBUcGr6b7cspr-j7L5fADsfXH6H5owhTMcssNBq5krFz1CWiPeAKiotlLjAsv0B9LFXip2_c9yUepAmRg.webp",
         "https://i.namu.wiki/i/9fGDZhiAhsS4eQXNtC198yjqSl2yBBc5hNkshACjFGk5PLJQHV5OtrQFm1sanr6whp0s88piyh4SL0hPDb3qtheW7gmo2yNvldPgDu8G7F_cIDU_Tt6QuwY56vavKvuVgwBBt74ZhyWKazQ4-MnhWQ.webp",
       ],
-    }
+    },
   ];
 
   const clickMemberInfo = memberDetail.filter((member) => {
@@ -121,7 +121,6 @@ const styles = StyleSheet.create({
     flex: 1,
     backgroundColor: "#fff",
     alignItems: "center",
-    paddingVertical: 10,
   },
   image: {
     width: "100%",
