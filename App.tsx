@@ -1,9 +1,9 @@
-import { createNativeStackNavigator } from "@react-navigation/native-stack";
-import { NavigationContainer } from "@react-navigation/native";
-import Home, { Member } from "./pages/Home";
 import React from "react";
-import MemberDetail from "./pages/MemberDetail";
 import Header from "./components/Header";
+import Home, { Member } from "./pages/Home";
+import MemberDetail from "./pages/MemberDetail";
+import { NavigationContainer } from "@react-navigation/native";
+import { createNativeStackNavigator } from "@react-navigation/native-stack";
 
 export type RootStackParamList = {
   Home: undefined;

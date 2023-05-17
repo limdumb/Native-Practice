@@ -1,5 +1,5 @@
-import { NavigationProp, useNavigation } from "@react-navigation/native";
 import React from "react";
+import { RootStackParamList } from "../App";
 import {
   StyleSheet,
   Text,
@@ -9,7 +9,7 @@ import {
   ScrollView,
 } from "react-native";
 import styled from "styled-components/native";
-import { RootStackParamList } from "../App";
+import { NavigationProp, useNavigation } from "@react-navigation/native";
 
 const ImageTouchWrapper = styled.TouchableOpacity<{ index: number }>`
   display: flex;

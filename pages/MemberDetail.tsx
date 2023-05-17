@@ -1,7 +1,7 @@
-import { RouteProp } from "@react-navigation/native";
 import { ScrollView } from "react-native";
-import { Image, StyleSheet, Text, View } from "react-native";
 import { RootStackParamList } from "../App";
+import { RouteProp } from "@react-navigation/native";
+import { Image, StyleSheet, Text, View } from "react-native";
 
 type MemberDetailProps = {
   route: RouteProp<RootStackParamList, "MemberDetail">;
